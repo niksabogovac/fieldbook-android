@@ -8,6 +8,9 @@ import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.Switch;
+import android.widget.ToggleButton;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -27,6 +30,7 @@ public class DisplayMap extends Activity implements GoogleMap.OnMarkerDragListen
     private int index;
     private ArrayList<Marker> markerList;
     PolygonOptions rectOptions;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,4 +108,16 @@ public class DisplayMap extends Activity implements GoogleMap.OnMarkerDragListen
         map.addPolygon(rectOptions).setStrokeColor(Color.RED);
         map.setOnMarkerDragListener(this);
     }
+
+    public void mapType(View view) {
+        //da li je toggle ukljucen
+        boolean off = ((ToggleButton) view).isChecked();
+        if(off) {
+            map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        }
+        else {
+            map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+        }
+    }
+
 }
