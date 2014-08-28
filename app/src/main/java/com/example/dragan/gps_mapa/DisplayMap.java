@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.Switch;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -23,7 +23,7 @@ import com.google.android.gms.maps.model.PolygonOptions;
 import java.util.ArrayList;
 
 
-public class DisplayMap extends Activity implements GoogleMap.OnMarkerDragListener {
+public class DisplayMap extends Activity implements GoogleMap.OnMarkerDragListener, GoogleMap.OnMapClickListener, GoogleMap.OnInfoWindowClickListener {
 
     GoogleMap map;
     ArrayList<LatLng> lista;
@@ -39,11 +39,12 @@ public class DisplayMap extends Activity implements GoogleMap.OnMarkerDragListen
 
         setContentView(R.layout.activity_display_map);
 
+
         map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
         markerList = new ArrayList<Marker>();
         for(int i = 0; i < lista.size(); i++) {
            // map.addMarker(new MarkerOptions().position(new LatLng(lista.get(i).latitude, lista.get(i).longitude)).draggable(true));
-            markerList.add(map.addMarker(new MarkerOptions().position(lista.get(i)).draggable(true) ) );
+            markerList.add(map.addMarker(new MarkerOptions().position(lista.get(i)).draggable(true).title("marker").snippet(" broj " + i)) );
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(lista.get(0), 16));
 
         }
@@ -54,6 +55,8 @@ public class DisplayMap extends Activity implements GoogleMap.OnMarkerDragListen
         // Get back the mutable Polygon
         map.addPolygon(rectOptions).setStrokeColor(Color.RED);
         map.setOnMarkerDragListener(this);
+        map.setOnMapClickListener(this);
+        map.setOnInfoWindowClickListener(this);
     }
 
 
@@ -100,19 +103,38 @@ public class DisplayMap extends Activity implements GoogleMap.OnMarkerDragListen
 
         for (int i = 0; i < lista.size(); i++) {
             //map.addMarker(new MarkerOptions().position(new LatLng(lista.get(i).latitude, lista.get(i).longitude)).draggable(true));
-            markerList.add(map.addMarker(new MarkerOptions().position(lista.get(i)).draggable(true) ) );
+            markerList.add(map.addMarker(new MarkerOptions().position(lista.get(i)).draggable(true).title("marker").snippet(" broj " + i) ) );
 
         }
         rectOptions = new PolygonOptions();
         rectOptions.addAll(lista);
         map.addPolygon(rectOptions).setStrokeColor(Color.RED);
-        map.setOnMarkerDragListener(this);
+
+    }
+
+
+
+    @Override
+    public void onMapClick(LatLng point) {
+
+        lista.add(point);
+        map.clear();
+        markerList.clear();
+
+        for(int i = 0; i < lista.size(); i++) {
+            markerList.add(map.addMarker(new MarkerOptions().position(lista.get(i)).draggable(true).title("marker").snippet(" broj " + i)));
+        }
+
+        rectOptions = new PolygonOptions();
+        rectOptions.addAll(lista);
+        map.addPolygon(rectOptions).setStrokeColor(Color.RED);
+
     }
 
     public void mapType(View view) {
         //da li je toggle ukljucen
-        boolean off = ((ToggleButton) view).isChecked();
-        if(off) {
+        boolean on = ((ToggleButton) view).isChecked();
+        if(on) {
             map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         }
         else {
@@ -120,4 +142,26 @@ public class DisplayMap extends Activity implements GoogleMap.OnMarkerDragListen
         }
     }
 
-}
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        // Remove the marker
+            //marker.remove();
+            index = markerList.indexOf(marker);
+        if(index == 0){ Toast.makeText(this, "Ne mozete obrisati prvi marker", Toast.LENGTH_SHORT).show();}
+        else {
+            marker.remove();
+            lista.remove(lista.get(index));
+            map.clear();
+            markerList.clear();
+
+            for (int i = 0; i < lista.size(); i++) {
+                markerList.add(map.addMarker(new MarkerOptions().position(lista.get(i)).draggable(true).title("marker").snippet(" broj " + i)));
+
+            }
+            rectOptions = new PolygonOptions();
+            rectOptions.addAll(lista);
+            map.addPolygon(rectOptions).setStrokeColor(Color.RED);
+        }
+        }
+    }
+

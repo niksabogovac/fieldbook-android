@@ -79,7 +79,7 @@ public class MyActivity extends Activity implements LocationListener, View.OnCli
     @Override
     protected void onResume() {
         super.onResume();
-        locationManager.requestLocationUpdates(provider, 400, 1, this);
+        locationManager.requestLocationUpdates(provider, 200, 1, this);
         }
 
     @Override
@@ -140,8 +140,13 @@ public class MyActivity extends Activity implements LocationListener, View.OnCli
 
     public void showMap(View view) {
         Intent intent = new Intent(this,DisplayMap.class);
-        intent.putExtra("mojalista", lista);
-        startActivity(intent);
+
+        if(lista==null){ Toast.makeText(this, "Niste oznacili ni jednu koordinatu",Toast.LENGTH_SHORT).show(); }
+        else {
+            intent.putExtra("mojalista", lista);
+            startActivity(intent);
+        }
+
     }
 
     public void LatLng(double lat, double lng) {

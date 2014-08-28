@@ -42,7 +42,9 @@
 
         <activity
             android:name=".DisplayMap"
-            android:label="@string/title_activity_display_map" >
+            android:label="@string/title_activity_display_map"
+            android:parentActivityName=".MyActivity"
+            >
         </activity>
     </application>
 

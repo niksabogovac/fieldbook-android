@@ -11,4 +11,6 @@
     <string name="normal">Normal</string>
     <string name="hybrid">Hybrid</string>
     <string name="textview"></string>
+    <string name="removeMarker">Ukloni poslednji marker</string>
+    <string name="saveLatLng">Dalje</string>
 </resources>
