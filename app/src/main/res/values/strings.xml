@@ -13,4 +13,31 @@
     <string name="textview"></string>
     <string name="removeMarker">Ukloni poslednji marker</string>
     <string name="saveLatLng">Dalje</string>
+    <string name="title_activity_field_info">Field Info</string>
+    <string name="unos_nove_parcele">Unesi novu parcelu</string>
+    <string name="oznaka">Oznaka</string>
+    <string name="tip_zemljista">Tip zemljista:</string>
+    <string name="povrsina_zemljista">Povrsina(ha):</string>
+    <string name="organizacija">Organizacija:</string>
+    <string name="omogucena">Omogucena:</string>
+    <string name="naslov">Unesite novu parcelicu</string>
+    <string name="parcela">Parcela</string>
+
+    <string-array name="tip_zemljista">
+        <item>Cernozem</item>
+        <item>Crvenica</item>
+        <item>Fluvisol</item>
+        <item>Gajnjaca</item>
+        <item>Luvisol</item>
+        <item>Podzol</item>
+        <item>Pseudoglej</item>
+        <item>Ritska crnica</item>
+        <item>Smonica</item>
+        <item>Soloncak</item>
+        <item>Solonjec</item>
+    </string-array>
+
+    <string name="title_activity_parcelica">Parcelica</string>
+    <string name="hello_world">Hello world!</string>
+
 </resources>

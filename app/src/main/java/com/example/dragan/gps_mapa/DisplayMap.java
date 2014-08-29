@@ -1,6 +1,8 @@
 package com.example.dragan.gps_mapa;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -163,5 +165,44 @@ public class DisplayMap extends Activity implements GoogleMap.OnMarkerDragListen
             map.addPolygon(rectOptions).setStrokeColor(Color.RED);
         }
         }
+
+        public void saveLatLng(View view) {
+           /* Intent intent = new Intent(this, FieldInfo.class);
+            intent.putExtra("listaMarkera",lista);
+            startActivity(intent); */
+            openAlert(view);
+        }
+
+    private void openAlert(View view) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(DisplayMap.this);
+
+        alertDialogBuilder.setTitle("Izaberite");
+        alertDialogBuilder.setMessage("Da li zelite da sacuvate kao parcela ili parcelica ?");
+        alertDialogBuilder.setPositiveButton("Parcela", new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int id) {
+                Intent intent = new Intent(getApplicationContext(), Parcela.class);
+                intent.putExtra("listaMarkera",lista);
+                startActivity(intent);
+                Toast.makeText(getApplicationContext(), "Izabrali ste 'Parcelu",Toast.LENGTH_SHORT).show();
+            }
+        });
+        alertDialogBuilder.setNegativeButton("Odustani", new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+                Toast.makeText(getApplicationContext(),"Izabrali ste 'Odustani'",Toast.LENGTH_SHORT).show();
+            }
+        });
+        alertDialogBuilder.setNeutralButton("Parcelica", new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int id) {
+                Intent intent = new Intent(getApplicationContext(),Parcelica.class);
+                intent.putExtra("listaMarkera", lista);
+                startActivity(intent);
+                Toast.makeText(getApplicationContext(), "Izabrali ste 'Parcelicu",Toast.LENGTH_SHORT).show();
+            }
+        });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
+
+}
 
