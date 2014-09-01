@@ -48,8 +48,8 @@ public class MyActivity extends Activity implements LocationListener, View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
         mainTextView = (TextView)findViewById(R.id.main_textview);
-        mainTextView.setText("GPS");
-        mainButton = (Button) findViewById(R.id.main_button);
+        // mainTextView.setText("GPS");
+        mainButton = (Button) findViewById(R.id.main_button1);
         mainButton.setOnClickListener(this);
         mainListView = (ListView)findViewById(R.id.main_listview);
 
@@ -141,7 +141,7 @@ public class MyActivity extends Activity implements LocationListener, View.OnCli
     public void showMap(View view) {
         Intent intent = new Intent(this,DisplayMap.class);
 
-        if(lista==null){ Toast.makeText(this, "Niste oznacili ni jednu koordinatu",Toast.LENGTH_SHORT).show(); }
+        if(lista==null){ Toast.makeText(this, "Niste označili ni jednu koordinatu",Toast.LENGTH_SHORT).show(); }
         else {
             intent.putExtra("mojalista", lista);
             startActivity(intent);

@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Gps_mapa</string>
+    <string name="app_name">Fieldbook</string>
     <string name="action_settings">Settings</string>
-    <string name="button">Oznaci</string>
-    <string name="button_mapa">Prikazi na Mapi</string>
+    <string name="button">Označi</string>
+    <string name="button_mapa">Prikaži na Mapi</string>
     <string name="title_activity_display_map">Display Map</string>
     <string name="satelite">Satelite!</string>
     <string name="terrain">Terrain</string>
     <string name="normal">Normal</string>
     <string name="hybrid">Hybrid</string>
-    <string name="textview"></string>
+    <string name="textview">GPS</string>
     <string name="removeMarker">Ukloni poslednji marker</string>
     <string name="saveLatLng">Dalje</string>
     <string name="title_activity_field_info">Field Info</string>
     <string name="unos_nove_parcele">Unesi novu parcelu</string>
-    <string name="oznaka">Oznaka</string>
-    <string name="tip_zemljista">Tip zemljista:</string>
-    <string name="povrsina_zemljista">Povrsina(ha):</string>
+    <string name="oznaka">Oznaka:</string>
+    <string name="tip_zemljista">Tip zemljišta:</string>
+    <string name="povrsina_zemljista">Površina(ha):</string>
     <string name="organizacija">Organizacija:</string>
-    <string name="omogucena">Omogucena:</string>
-    <string name="naslov">Unesite novu parcelicu</string>
-    <string name="parcela">Parcela</string>
+    <string name="omogucena">Omogućena:</string>
+    <string name="naslov_parcelica">Unesite novu parcelicu</string>
+    <string name="parcela">Parcela:</string>
+
 
     <string-array name="tip_zemljista">
-        <item>Cernozem</item>
+        <item>Černozem</item>
         <item>Crvenica</item>
         <item>Fluvisol</item>
         <item>Gajnjaca</item>
@@ -33,7 +34,7 @@
         <item>Pseudoglej</item>
         <item>Ritska crnica</item>
         <item>Smonica</item>
-        <item>Soloncak</item>
+        <item>Solončak</item>
         <item>Solonjec</item>
     </string-array>
 

@@ -1,0 +1,97 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp">
+
+    <TextView
+        android:id="@+id/naslov"
+        android:text="@string/naslov_parcelica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/naslov"
+            android:layout_marginTop="20dp"
+            android:id="@+id/parcelica_polja_unos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/oznaka"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="@android:color/holo_green_dark"/>
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="Unesite oznaku parcele" />
+    </LinearLayout>
+    <LinearLayout
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/parcelica_polja_unos"
+            android:id="@+id/parcelica_parcela_unos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/parcela"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="@android:color/holo_green_dark"/>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/parcelica_parcela_unos"
+            android:id="@+id/parcelica_polja_povrsina"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/povrsina_zemljista"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="@android:color/holo_green_dark"/>
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="Unesite površinu u hektarima"
+                android:textSize="14sp"/>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/parcelica_polja_povrsina"
+            android:id="@+id/parcelica_polja_omogucena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/omogucena"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="@android:color/holo_green_dark"/>
+            <CheckBox
+                android:id="@+id/checkbox_omogucena"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</RelativeLayout>

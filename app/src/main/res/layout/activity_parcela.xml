@@ -1,0 +1,125 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp">
+
+    <TextView
+        android:id="@+id/naslov_parcela"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:text="@string/unos_nove_parcele" />
+
+    <LinearLayout
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/naslov_parcela"
+            android:layout_marginTop="20dp"
+            android:id="@+id/polja_oznaka"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/oznaka"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="@android:color/holo_green_dark"/>
+            <EditText
+                android:id="@+id/polje_oznaka"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="Unesite oznaku parcele" />
+    </LinearLayout>
+    <LinearLayout
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/polja_oznaka"
+            android:id="@+id/polja_zemljista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tip_zemljista"
+                    android:textStyle="bold"
+                    android:textSize="17sp"
+                    android:textColor="@android:color/holo_green_dark" />
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tip_zemljista" />
+    </LinearLayout>
+    <LinearLayout
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/polja_zemljista"
+            android:id="@+id/polja_povrsina_zemljista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/povrsina_zemljista"
+                    android:textStyle="bold"
+                    android:textSize="17sp"
+                    android:textColor="@android:color/holo_green_dark"/>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:hint="Unesite površinu zemljišta u hektarima"
+                    android:textSize="14sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/polja_povrsina_zemljista"
+        android:id="@+id/polja_organizacija"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/organizacija"
+                    android:textStyle="bold"
+                    android:textSize="17sp"
+                    android:textColor="@android:color/holo_green_dark"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/polja_organizacija"
+        android:id="@+id/polja_omoguceno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/omogucena"
+                    android:textStyle="bold"
+                    android:textSize="17sp"
+                    android:textColor="@android:color/holo_green_dark"/>
+                <CheckBox
+                    android:id="@+id/checkbox_omogucena"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <ListView
+        android:layout_below="@id/polja_omoguceno"
+        android:id="@+id/fieldInfo_listview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

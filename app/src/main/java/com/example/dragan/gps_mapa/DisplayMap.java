@@ -149,7 +149,7 @@ public class DisplayMap extends Activity implements GoogleMap.OnMarkerDragListen
         // Remove the marker
             //marker.remove();
             index = markerList.indexOf(marker);
-        if(index == 0){ Toast.makeText(this, "Ne mozete obrisati prvi marker", Toast.LENGTH_SHORT).show();}
+        if(index == 0){ Toast.makeText(this, "Ne možete obrisati prvi marker", Toast.LENGTH_SHORT).show();}
         else {
             marker.remove();
             lista.remove(lista.get(index));
@@ -177,7 +177,7 @@ public class DisplayMap extends Activity implements GoogleMap.OnMarkerDragListen
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(DisplayMap.this);
 
         alertDialogBuilder.setTitle("Izaberite");
-        alertDialogBuilder.setMessage("Da li zelite da sacuvate kao parcela ili parcelica ?");
+        alertDialogBuilder.setMessage("Da li želite da sačuvate kao parcela ili parcelica ?");
         alertDialogBuilder.setPositiveButton("Parcela", new DialogInterface.OnClickListener(){
             public void onClick(DialogInterface dialog, int id) {
                 Intent intent = new Intent(getApplicationContext(), Parcela.class);
