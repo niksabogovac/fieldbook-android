@@ -30,6 +30,7 @@
                 android:textSize="17sp"
                 android:textColor="@android:color/holo_green_dark"/>
             <EditText
+                android:id="@+id/oznaka_parcelica"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -67,6 +68,7 @@
                 android:textSize="17sp"
                 android:textColor="@android:color/holo_green_dark"/>
             <EditText
+                android:id="@+id/povrsina_parcelica"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -89,9 +91,16 @@
                 android:textSize="17sp"
                 android:textColor="@android:color/holo_green_dark"/>
             <CheckBox
-                android:id="@+id/checkbox_omogucena"
+                android:id="@+id/checkbox_omogucena_parcelica"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
     </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="saveParcelica"
+        android:text="Sacuvaj"
+        android:layout_alignParentBottom="true"/>
 </RelativeLayout>
