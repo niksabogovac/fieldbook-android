@@ -76,7 +76,11 @@ public class Parcelica extends Activity {
         pp = povrsinaParcelice.getText().toString();
 
         writeJSONP();
-        Toast.makeText(getApplicationContext(),"cuvanje",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),"čuvanje",Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(this, MyActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     public void writeJSONP() {
@@ -98,7 +102,7 @@ public class Parcelica extends Activity {
 
             String data = jsonObject.toString();
             try {
-                FileOutputStream fOut = openFileOutput("podaci_parcelica",MODE_PRIVATE);
+                FileOutputStream fOut = openFileOutput("podaci_parcelica",MODE_APPEND);
                 fOut.write(data.getBytes());
                 fOut.close();
                 Toast.makeText(getBaseContext(),"file saved",
